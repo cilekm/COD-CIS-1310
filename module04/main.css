@@ -1,0 +1,28 @@
+#wrapper header {
+    padding: 1rem;
+    background-color: #008833; 
+}
+
+#wrapper header a {
+    color: #99ccff;
+}
+
+#wrapper main {
+    padding: 1rem; 
+    min-height: 50vh;
+    background-color: lightgrey;
+}
+
+#wrapper main section p .large {
+    font-size: 2em;
+}
+
+#wrapper main section p a {
+    color: #0000ff; font-weight: bold;
+}
+
+#wrapper footer {
+    padding: 1rem; 
+    background-color: #008833; 
+    color: #99ccff;   
+}
