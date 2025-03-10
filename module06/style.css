@@ -1,86 +1,60 @@
 /*
 Description:  Default theme for Classes
-Author:       Joseph Neathawk
-Author URI:   https://knighthawk0811.github.io
+Author:       Maxim Cilek
+Author URI:   https://cilekm.github.io
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 */
 
-/*--------------------------------------------------------------
-selector {
-	layout(position)
-	
-	content(text)
-	
-	design(background)
-	
-	other(z-index)
-}
-----------------------------------------------------------------
+/*----------------------------------------------------------------
 >>> COLORS:	  
-----------------------------------------------------------------
-*/
+----------------------------------------------------------------*/
 :root {
     --background-color: #1a2c38;
     --secondary-background-color: #0f212e;
     --tertiary-background-color: #213743;
+    --button-hover-background-color: #007bff;
 
     --primary-text-color: #e4e4e4;
     --secondary-text-color: #b1bad3;
-    
-    --input-field-background-color: #2a2a2a;
-    --input-field-text-color: #e4e4e4;
-    --input-field-border-color: #007bff;
-    
-    --link-color: #007bff;
-    
-    --button-text-color: #ffffff;
-    --button-background-color: #007bff;
-    
+    --link-text-color: #007bff;
+    --required-text-color: #E57373;
     --placeholder-text-color: #7a7a7a;
 
-    --required-text-color: #E57373; /*#B55454 D66A6A*/
-    --required-border-color: #84150d; /*#B55454 D66A6A*/
+    --primary-border-color: #007bff;
+    --required-border-color: #84150d;
+    
 }
-/*
-----------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Main Structure
-# General Elements
-# Modal Navigation
-# Navigation
-# Header Area
-# Content Area
-# Footer Area
-# Reusable Classes
-# Other
-# Templates
-# Media Queries
-
---------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Main Structure
+# Universal
 --------------------------------------------------------------*/
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-    box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-    margin: 1em auto;
-    width: 40%;
     background: var(--background-color);
 }
 
 a {
-    color: var(--link-color);
+    color: var(--link-text-color);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-border-color);
+}
+
+input:invalid {
+  border: 1px solid var(--required-border-color);
 }
 
 /*--------------------------------------------------------------
@@ -89,40 +63,44 @@ a {
 header {
     padding: 0.25em;
     position: relative; /* bring box shadow forward */
-    text-align: center;
     color: var(--primary-text-color);
+    text-align: center;
     font-weight: bold;
-	font-size: xx-large;
+	font-size: 30px;
     font-variant: small-caps;
     background-color: var(--secondary-background-color);
-    box-shadow: rgba(0, 0, 0, 0.75) 0 4px 6px -1px,rgba(0, 0, 0, 0.5) 0 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 6px -1px,rgba(0, 0, 0, 0.5) 0 2px 4px -1px;
 }
 
 /*--------------------------------------------------------------
 # Content Area
 --------------------------------------------------------------*/
-main {
-    padding: 1em;
+
+#container {
+    margin: 1em auto;
+    width: 50%;
+    color: var(--primary-text-color);
     background-color: var(--tertiary-background-color);
-    box-shadow: rgba(0, 0, 0, 0.75) 0 4px 6px -1px,rgba(0, 0, 0, 0.5) 0 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 4px 6px 2px;
 }
 
-#form-container {
-    margin: auto;
-    width: 80%;
-    max-height: 100vh;
+main {
+    margin: 0 1rem;
 }
 
 form {
-    padding-block: 0.5em;
-    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: column;
 }
 
-form > fieldset {
+form div {
+    display: flex;
+}
+
+form fieldset {
     padding: 0.5em;
-    font-size: 18px;
-    margin-bottom: 1em;
     border-radius: 0.3em;
+    margin: 0.5em;
 }
 
 form legend {
@@ -130,48 +108,66 @@ form legend {
     padding-inline: 0.5em;
     font-weight: bold;
     font-variant: small-caps;
+    font-size: 20px;
 }
 
-form .required {
-    color: var(--required-text-color);
-}
-
-/*--------------------------------------------------------------
-# Input Fields
---------------------------------------------------------------*/
-input, select, textarea {
-    border-radius: 0.5em;
-    color: var(--placeholder-text-color);
-    border: 1px solid var(--input-field-border-color);
-    background-color: var(--input-field-background-color);
-    width: 100%;
+form select {
     padding: 0.5em;
-    box-sizing: border-box;
+    width: 100%;
 }
 
-input:invalid,
-textarea:invalid,
-select:invalid {
-  border: 1px solid var(--required-border-color);
+form input, select, textarea {
+    border-radius: 0.5em;
+    color: var(--primary-text-color);
+    border: 1px solid var(--primary-border-color);
+    background-color: var(--secondary-background-color);
 }
 
-textarea {
+form textarea {
+    padding: 1em;
     resize: none;
+    width: 100%;
 }
 
 button[type="submit"] {
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
-    border: none;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
+    border: 1px solid var(--primary-border-color);
     padding: 0.75em 1.25em;
+    margin-block: 0.75em;
     border-radius: 0.5em;
     font-size: 1em;
+    font-weight: bold;
     cursor: pointer;
+    width: 100px;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 2px 4px 3px;
 }
-button:hover {
-    background-color: #0056b3;
+button[type="submit"]:hover {
+    background-color: var(--button-hover-background-color);
 }
 
+#personal-info {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: auto 10em;
+    gap: 10px;
+}
+#personal-info label {
+    padding: 5px;
+    font-weight: bold;
+}
+#personal-info input {
+    padding: 5px;
+}
+
+#hobby, #programming-language {
+    margin-top: 1em;
+    margin-inline: auto;
+}
+#hobby label {
+    padding-right: 1em;
+}
 
 /*--------------------------------------------------------------
 # Footer Area
@@ -182,15 +178,19 @@ footer {
     text-align: center;
     font-style: italic;
     color: var(--primary-text-color);
+    position: relative;
     background-color: var(--secondary-background-color);
-    box-shadow: rgba(0, 0, 0, 0.75) 0 4px 6px -1px,rgba(0, 0, 0, 0.5) 0 2px 4px -1px;
 }
 
 /*--------------------------------------------------------------
 # Misc
 --------------------------------------------------------------*/
+.required {
+    color: var(--required-text-color);
+}
 
 .required-message {
+    margin-block: 1em;
     padding: 0.25em;
     text-align: center;
     font-size: 1em;
@@ -198,8 +198,4 @@ footer {
     color: var(--secondary-text-color);
     background-color: #2f4553;
     box-shadow: rgba(0, 0, 0, 0.3) 0 2px 4px -1px,rgba(0, 0, 0, 0.2) 0 1px 2px -1px;
-}
-
-::placeholder {
-    padding: 0.5em;
 }

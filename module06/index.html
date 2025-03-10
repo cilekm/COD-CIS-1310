@@ -6,49 +6,50 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div id="container">
         <header>Form</header>
         <main>
-
-            <div id="form-container">
                 <p class="required-message">Fields marked in <span class="required">red</span> are required.</p>
             
                 <form action="#" method="POST">
-                    <fieldset>
+                    <fieldset id="personal-info">
                         <legend>Personal Information</legend>
-                            <label for="full_name" class="required">First Name</label>
-                            <input type="text" name="full_name" id="full_name" required><br>
+                        <label for="full_name" class="required">First Name</label>
+                        <input type="text" name="full_name" id="full_name" placeholder="John" required>
 
-                            <label for="email" class="required">Email</label>
-                            <input type="email" name="email" id="email" required><br>
-                            
-                            <label for="password" class="required">Password</label>
-                            <input type="password" name="password" id="password" required><br>
+                        <label for="email" class="required">Email</label>
+                        <input type="email" name="email" id="email" placeholder="example@example.com" required>
+                        
+                        <label for="password" class="required">Password</label>
+                        <input type="password" name="password" id="password" required>
 
-                            <label for="dob">DOB</label>
-                            <input type="date" name="dob" id="dob">
+                        <label for="dob">DOB</label>
+                        <input type="date" name="dob" id="dob">
                     </fieldset>
+
+                    <div>
                     
-                    <fieldset>
+                    <fieldset id="hobby">
                         <legend>Hobby</legend>
                         
-                        <input type="radio" id="reading" name="reading" value="reading">
-                        <label for="reading">Reading</label><br>
+                        <input type="radio" id="reading" name="hobby" value="reading">
+                        <label for="reading">Reading</label>
 
-                        <input type="radio" id="working_out" name="working_out" value="working_out">
-                        <label for="working_out">Working Out</label><br>
+                        <input type="radio" id="working_out" name="hobby" value="working_out">
+                        <label for="working_out">Working Out</label>
 
-                        <input type="radio" id="painting" name="painting" value="painting">
-                        <label for="painting">Painting</label><br>
+                        <input type="radio" id="painting" name="hobby" value="painting">
+                        <label for="painting">Painting</label>
 
-                        <input type="radio" id="video_games" name="video_games" value="video_games">
-                        <label for="video_games">Video Games</label><br>
+                        <input type="radio" id="video_games" name="hobby" value="video_games">
+                        <label for="video_games">Video Games</label>
 
                     </fieldset>
 
-                    <fieldset>
+                    <fieldset id="programming-language">
                         <legend>Programming Language</legend>
                         <select name="language" id="language" >
-                            <option value="" selected>Please choose an option</option>
+                            <option value="" selected disabled>Please choose an option</option>
                             <option value="python">Python</option>
                             <option value="javascript">JavaScript</option>
                             <option value="java">Java</option>
@@ -57,17 +58,17 @@
                             <option value="rust">Rust</option>
                         </select>
                     </fieldset>
+                    </div>
 
                     <fieldset>
                         <legend>Terms and Conditions</legend>
-                        <input type="checkbox" id="agree" name="agree" required>
+                        <input type="checkbox" id="agree" name="agree">
                         <label for="agree">I agree to the <a href="" rel="nofollow">Terms and Conditions</a>.</label>
                     </fieldset>
                     
                     <fieldset>
                         <legend>Comments</legend>
                         <textarea id="comments" name="comments" rows=4 cols=40 placeholder="Enter your comments here..."></textarea>
-                        
                     </fieldset>
 
                     
@@ -75,10 +76,10 @@
                     
 
                 </form>
-            </div>
         </main>
         <footer>
             <p>&copy; 2025 Maxim Cilek</p>
         </footer>
+        </div>
     </body>
 </html>
