@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Module 13</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="overlay" class="overlay" onclick="toggleNav()"></div>
+  <header>
+    <div id="hamburger" class="hamburger" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="brand">
+      <img src="public/favicon-dark.png" alt="Max's Sports Logo" class="logo" />
+      <h1 class="company-name">Max's Sports Analysis</h1>
+    </div>
+  </header>
+
+  <nav id="sidebar" class="sidebar">
+    <div id="nav-close-btn" role="button" class="nav-close-btn" onclick="toggleNav()">x</div>
+    <div class="nav-menu">
+        <h2>Pages</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/c/JosephNeathawk">My YouTube</a></li>
+            <li><a href="https://api.jquery.com/">jQuery Doc</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">CSS Transition</a></li>
+            <li><a href="https://imgur.com/a/m5U82eZ">Icons</a></li>
+            <li><a href="https://developers.google.com/speed/libraries/#jquery">jQuery src</a></li>
+        </ul>
+    </div>
+  </nav>
+
+
+  <main>
+    <h1>Greatest Sports Moments</h1>
+    <p>Throughout history, sports have delivered powerful moments that transcend the game—instances of raw emotion, unparalleled determination, and iconic triumphs that unite fans across the world. These legendary feats continue to inspire generations, reminding us of the limitless potential of the human spirit.</p>
+  
+    <section>
+      <h2>Top 3 Moments</h2>
+      <ol>
+        <li>Michael Jordan's “Flu Game” (1997 NBA Finals)</li>
+        <li>Usain Bolt's 9.58s 100m World Record (2009)</li>
+        <li>Argentina wins the 2022 FIFA World Cup in a penalty shootout</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Watch: One of the Most Iconic Sports Comebacks</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/lvhNLpZz9iI"
+          frameborder="0" 
+          allowfullscreen 
+          title="Michael Jordan came back for the 2nd time 22 YEARS AGO 😤 A look back at MJ's return | NBA Today"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Maxim Cilek</p>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      const hamburger = document.getElementById("hamburger");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      const closeButton = document.getElementById("nav-close-btn");
+
+      const isOpen = hamburger.classList.toggle("open");
+
+      if (isOpen) {
+        sidebar.classList.add("open");
+        overlay.classList.add("show");
+        closeButton.style.display = "block";
+        closeButton.style.right = "-1em";
+      } else {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("show");
+        closeButton.style.display = "none";
+        closeButton.style.right = "0";
+      }
+    }
+  </script>
+</body>
+</html>
